@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="data"
+            type="com.saajan.githubtrendsrepo.models.GithubTrendData" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentPadding="12dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            android:layout_margin="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:id="@+id/ivPacks"
+                    android:src="@drawable/ic_packs"
+                    android:padding="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvAuthorName"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/purple_700"
+                    android:text="@{data.author}"
+                    app:layout_constraintStart_toEndOf="@id/ivPacks"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/tvRepoName"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvRepoName"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:alpha="0.75"
+                    android:textColor="@color/color_repo"
+                    android:text="@{data.repoName}"
+                    app:layout_constraintStart_toEndOf="@id/ivPacks"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvAuthorName"
+                    app:layout_constraintBottom_toTopOf="@id/tvRepoDesc"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvRepoDesc"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:alpha="0.45"
+                    android:textColor="@color/black"
+                    android:text="@{data.repoDescription}"
+                    app:layout_constraintStart_toEndOf="@id/ivPacks"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvRepoName"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
